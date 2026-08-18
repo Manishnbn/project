@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<style>
+     .head{
+        width:100%;
+        height:75px;
+        background:linear-gradient(to top right,#165d81, #281575);
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+
+    }
+    .logo{
+        width:60px;
+        height:70px;
+        color:black;
+    }
+    ion-icon{
+        width:58px;
+        height:60px;
+        color:aliceblue;
+    
+    }
+    h1{
+        margin-left:150px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color:burlywood;
+    }
+    
+    
+    .one{
+        width:100%;
+        height:700px;
+        background-color:lightslategray;
+        background-image: url("mals.jpg");
+        background-size:cover;
+       
+        
+    }
+    .box{
+        width:400px;
+        height:300px;
+        background-color: white;
+        color:black;
+        position: absolute;
+        margin-left:600px;
+        margin-top: 50px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 20px;
+        border-radius: 20px 20px 20px 20px;
+        border-style:dotted;
+        text-align: center;
+        display:none;
+    }
+    button{
+        border-radius:15px;
+        background-color:burlywood;
+    }
+
+     button:hover{
+        border-radius: 20px;
+        background-color: gold;
+
+    }
+     .box2{
+        width:400px;
+        height:300px;
+        background-color: white;
+        color:black;
+        position: absolute;
+        margin-left:600px;
+        margin-top: 50px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 20px;
+        border-radius: 20px 20px 20px 20px;
+        border-style:dotted;
+        text-align: center;
+        display:none;
+    }
+     #about{
+        width:100%;
+        height:200px;
+        padding-top:20px;
+        
+    }
+     #contact{
+        width:100%;
+        height:60px;
+        padding-top:20px;
+    }
+    p{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:20px;
+        text-align: center;
+        margin-top: 5px;
+    }
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color:black ;
+        margin-right: 10px;
+
+    }
+  
+       
+    </style>
+
+    <body>
+    <div class="head">
+       <div class="logo"><ion-icon name="cart"></ion-icon></div>
+        <h1>MACIZ MALL</h1>
+        <div class="nav">
+            <button type="button" onclick="show()">Register</button>
+            <button  type="button" onclick="display()">login</button>
+            <a href="#about">About</a>
+            <a href="#contact">contact</a>
+                
+        </div> 
+    </div>  
+    <div class="one">
+       <div class="box"> <form>
+        <h2>Register Form</h2>
+           
+            Email:<input type="text" id="b" placeholder="Enter your email"><br><br>
+            Password:<input type="text" id="c" placeholder="Enter your name"><br><br>
+            <button  type="button"   onclick="regis()">save</button>
+            <button  type="button"    onclick="hide()">Close</button>
+             <script>
+                function regis(){
+                   
+                    let Email=document.getElementById("b").value;
+                    let pwd=document.getElementById("c").value;
+                    if(Email =="" && pwd==""){
+                        alert("Missing details")
+                        
+                    
+                    }
+                    else{
+                        localStorage.setItem("Email",Email)
+                        localStorage.setItem("Password",pwd)
+                        alert("Login successfully")
+                
+                    }
+                }
+                function show(){
+                    document.querySelector(".box").style.display="block";
+                }
+                function hide(){
+                    document.querySelector(".box").style.display="none";
+                }
+             </script>
+          </form>
+        </div>
+        <div class="box2"><form>
+            <h2>login form</h2>
+
+            name:<input type="text" id="d" placeholder="enter the name"><br><br>
+            Email:<input type="text" id="e" placeholder="enter the email"><br><br>
+            password:<input type="text" id="f" placeholder="enter the password"><br><br>
+            <button  type="button"  onclick="login()">save</button>
+            <button  type="button"    onclick="view()">close</button>
+            <script>
+                function login(){
+                     let name=document.getElementById("d").value;
+                     let Email=document.getElementById("e").value;
+                     let password=document.getElementById("f").value;
+
+                     let storedEmail=localStorage.getItem("Email");
+                     let storedpwd=localStorage.getItem("Password");
+
+                     if(Email === storedEmail &&  password === storedpwd){
+                        alert("login successfully");
+                        window.location.href="first.html";
+                    }
+                     else{
+                        alert("login failed");
+                    }
+                }
+                function display(){
+                    document.querySelector(".box2").style.display="block";
+                }
+                function view(){
+                    document.querySelector(".box2").style.display="none";
+                }
+            </script>
+          </form>
+
+        </div>
+    </div> 
+      <div id="about">
+        <p>A shopping mall is a large building that contains many retail stores, restaurants, entertainment facilities, and service centers under one roof. It provides a convenient place where people can shop, dine, relax, and spend time with family and friends. Modern malls often include supermarkets, clothing stores, electronics shops, cinemas, children's play areas, and food courts, making them a complete destination for shopping and entertainment.</p>
+      </div>
+      <div id="contact">
+        <p>manish@gmail.com<br>No:9087654321</p>
+       
+
+      </div>
+       
+    
+
+    
+    
+    
+</body>
+</html>
